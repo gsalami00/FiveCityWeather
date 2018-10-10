@@ -42,7 +42,7 @@ const getWaldorf = payload => ({
 export const gettingFiveCities = async dispatch => {
   try {
     const { data } = await axios.get(
-      "http://api.openweathermap.org/data/2.5/group?id=5128581,4684888,5368361,4930956,4372599&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
+      "https://api.openweathermap.org/data/2.5/group?id=5128581,4684888,5368361,4930956,4372599&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
     );
     dispatch(getFiveCities(data));
   } catch (err) {
