@@ -19,7 +19,7 @@ export const gettingAnyCity = id => async dispatch => {
       `https://api.openweathermap.org/data/2.5/weather?id=${id}&units=imperial&APPID=${API_KEY}`
     );
     const forecast = await axios.get(
-      `http://api.openweathermap.org/data/2.5/forecast?id=${id}&units=imperial&APPID=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?id=${id}&units=imperial&APPID=${API_KEY}`
     );
     dispatch(getAnyCity({ city: city.data, cityForecast: forecast.data.list }));
   } catch (err) {
