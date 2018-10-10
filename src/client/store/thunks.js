@@ -53,7 +53,7 @@ export const gettingFiveCities = async dispatch => {
 export const gettingNewYork = async dispatch => {
   try {
     const { data } = await axios.get(
-      "http://api.openweathermap.org/data/2.5/forecast?id=5128581&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
+      "https://api.openweathermap.org/data/2.5/forecast?id=5128581&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
     );
     dispatch(getNewYork(data));
   } catch (err) {
@@ -64,7 +64,7 @@ export const gettingNewYork = async dispatch => {
 export const gettingDallas = async dispatch => {
   try {
     const { data } = await axios.get(
-      "http://api.openweathermap.org/data/2.5/forecast?id=4684888&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
+      "https://api.openweathermap.org/data/2.5/forecast?id=4684888&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
     );
     dispatch(getDallas(data));
   } catch (err) {
@@ -75,7 +75,7 @@ export const gettingDallas = async dispatch => {
 export const gettingLosAngeles = async dispatch => {
   try {
     const { data } = await axios.get(
-      "http://api.openweathermap.org/data/2.5/forecast?id=5368361&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
+      "https://api.openweathermap.org/data/2.5/forecast?id=5368361&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
     );
     dispatch(getLosAngeles(data));
   } catch (err) {
@@ -86,7 +86,7 @@ export const gettingLosAngeles = async dispatch => {
 export const gettingBoston = async dispatch => {
   try {
     const { data } = await axios.get(
-      "http://api.openweathermap.org/data/2.5/forecast?id=4930956&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
+      "https://api.openweathermap.org/data/2.5/forecast?id=4930956&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
     );
     dispatch(getBoston(data));
   } catch (err) {
@@ -97,7 +97,7 @@ export const gettingBoston = async dispatch => {
 export const gettingWaldorf = async dispatch => {
   try {
     const { data } = await axios.get(
-      "http://api.openweathermap.org/data/2.5/forecast?id=4372599&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
+      "https://api.openweathermap.org/data/2.5/forecast?id=4372599&units=imperial&APPID=3c4538a176b5e2d6e96913f96994e70b"
     );
     dispatch(getWaldorf(data));
   } catch (err) {
