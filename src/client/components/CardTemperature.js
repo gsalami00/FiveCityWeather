@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const CardTemperature = props => {
   return (
@@ -30,7 +31,9 @@ const CardTemperature = props => {
             <span className="small-f">F</span>
           </div>
         </div>
-        <div className="card-details-btn">More Details >></div>
+        <div className="card-details-btn">
+          <Link to={`/${props.id}`}> More Details >></Link>
+        </div>
       </div>
     </React.Fragment>
   );

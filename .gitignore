@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-app-env
 
 # testing
 /coverage

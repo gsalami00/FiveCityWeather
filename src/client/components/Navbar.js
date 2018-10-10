@@ -13,6 +13,7 @@ const Navbar = () => {
               alt="Weather Checker"
             />
             <div id="title">Weather Checker</div>
+            <div className="clear" />
           </div>
         </div>
       </div>

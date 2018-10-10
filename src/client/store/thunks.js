@@ -1,107 +1,38 @@
 import axios from "axios";
-import {
-  GET_NEW_YORK,
-  GET_DALLAS,
-  GET_LOS_ANGELES,
-  GET_BOSTON,
-  GET_WALDORF,
-  LOADING,
-  GET_FIVE_CITIES
-} from "./";
-
-const apiKey = process.env.API_KEY;
+import { GET_FIVE_CITIES, GET_ANY_CITY } from "./";
+const API_KEY = "3c4538a176b5e2d6e96913f96994e70b";
 
 const getFiveCities = payload => ({
   type: GET_FIVE_CITIES,
   payload
 });
 
-const getNewYork = payload => ({
-  type: GET_NEW_YORK,
-  payload
+const getAnyCity = payload => ({
+  type: GET_ANY_CITY,
+  city: payload.city,
+  cityForecast: payload.cityForecast
 });
 
-const getDallas = payload => ({
-  type: GET_DALLAS,
-  payload
-});
-
-const getLosAngeles = payload => ({
-  type: GET_LOS_ANGELES,
-  payload
-});
-
-const getBoston = payload => ({
-  type: GET_BOSTON,
-  payload
-});
-
-const getWaldorf = payload => ({
-  type: GET_WALDORF,
-  payload
-});
+export const gettingAnyCity = id => async dispatch => {
+  try {
+    const city = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?id=${id}&units=imperial&APPID=${API_KEY}`
+    );
+    const forecast = await axios.get(
+      `http://api.openweathermap.org/data/2.5/forecast?id=${id}&units=imperial&APPID=${API_KEY}`
+    );
+    dispatch(getAnyCity({ city: city.data, cityForecast: forecast.data.list }));
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 export const gettingFiveCities = async dispatch => {
   try {
     const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/group?id=5128581,4684888,5368361,4930956,4372599&units=imperial&APPID=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/group?id=5128581,4684888,5368361,4930956,4372599&units=imperial&APPID=${API_KEY}`
     );
     dispatch(getFiveCities(data));
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const gettingNewYork = async dispatch => {
-  try {
-    const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?id=5128581&units=imperial&APPID=${apiKey}`
-    );
-    dispatch(getNewYork(data));
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const gettingDallas = async dispatch => {
-  try {
-    const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?id=4684888&units=imperial&APPID=${apiKey}`
-    );
-    dispatch(getDallas(data));
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const gettingLosAngeles = async dispatch => {
-  try {
-    const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?id=5368361&units=imperial&APPID=${apiKey}`
-    );
-    dispatch(getLosAngeles(data));
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const gettingBoston = async dispatch => {
-  try {
-    const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?id=4930956&units=imperial&APPID=${apiKey}`
-    );
-    dispatch(getBoston(data));
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const gettingWaldorf = async dispatch => {
-  try {
-    const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?id=4372599&units=imperial&APPID=${apiKey}`
-    );
-    dispatch(getWaldorf(data));
   } catch (err) {
     console.log(err);
   }

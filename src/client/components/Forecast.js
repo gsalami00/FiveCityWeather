@@ -16,28 +16,27 @@ const Forecast = props => {
             <td className="table-temp">Temperature</td>
             <td className="table-description">Description</td>
           </tr>
-          {props.city.length
-            ? props.city[0].list.map((temp, idx) => {
-                return (
-                  <React.Fragment key={idx}>
-                    <tr>
-                      <td className="table-rows">{props.getDay(temp.dt)}</td>
 
-                      <td className="table-rows">{props.getTime(temp.dt)}</td>
+          {props.cityForecast[0].map((temp, idx) => {
+            return (
+              <React.Fragment key={idx}>
+                <tr>
+                  <td className="table-rows">{props.getDay(temp.dt)}</td>
 
-                      <td className="table-rows center">
-                        {Math.trunc(temp.main.temp)}
-                        &deg; F
-                      </td>
+                  <td className="table-rows">{props.getTime(temp.dt)}</td>
 
-                      <td className="table-rows center">
-                        {temp.weather[0].description}
-                      </td>
-                    </tr>
-                  </React.Fragment>
-                );
-              })
-            : null}
+                  <td className="table-rows center">
+                    {Math.trunc(temp.main.temp)}
+                    &deg; F
+                  </td>
+
+                  <td className="table-rows center">
+                    {temp.weather[0].description}
+                  </td>
+                </tr>
+              </React.Fragment>
+            );
+          })}
         </tbody>
       </table>
     </React.Fragment>

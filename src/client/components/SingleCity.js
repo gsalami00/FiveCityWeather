@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { gettingFiveCities, gettingBoston } from "../store/thunks";
+import { gettingAnyCity } from "../store/thunks";
 import Forecast from "./Forecast";
 
-class Boston extends Component {
+class SingleCity extends Component {
   constructor(props) {
     super(props);
     this.getTime = this.getTime.bind(this);
@@ -12,8 +12,8 @@ class Boston extends Component {
   componentDidMount() {
     // In case user saves this page and doesn't come from the home page,
     // cities' data will still be fetched
-    this.props.fetchFiveCities();
-    this.props.fetchBoston();
+    this.props.fetchAnyCity(this.props.match.params.id);
+    // this.props.fetchCityForecast(this.props.match.params.id);
   }
   getTime(num) {
     const date = new Date(num * 1000);
@@ -46,17 +46,17 @@ class Boston extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.cities.length ? (
+        {this.props.city.length ? (
           <React.Fragment>
             <div className="city-title">
-              {this.props.cities[0].list[3].name}
+              {this.props.city[0].name ? this.props.city[0].name : null}
             </div>
             <div className="content-container">
               <div className="content-container-left">
                 <div className="temp-container">
                   <div className="card-title">Current Temperature</div>
                   <div className="card-temp">
-                    {Math.trunc(this.props.cities[0].list[3].main.temp)}
+                    {Math.trunc(this.props.city[0].main.temp)}
                     &deg;
                     <span className="big-f">F</span>
                   </div>
@@ -64,7 +64,7 @@ class Boston extends Component {
                     <div className="low-high-title">Low</div>
 
                     <span className="small-deg">
-                      {Math.trunc(this.props.cities[0].list[3].main.temp_min)}
+                      {Math.trunc(this.props.city[0].main.temp_min)}
                       &deg;
                     </span>
                     <span className="small-f">F</span>
@@ -73,7 +73,7 @@ class Boston extends Component {
                     <div className="low-high-title">High</div>
 
                     <span className="small-deg">
-                      {Math.trunc(this.props.cities[0].list[3].main.temp_max)}
+                      {Math.trunc(this.props.city[0].main.temp_max)}
                       &deg;
                     </span>
                     <span className="small-f">F</span>
@@ -86,39 +86,35 @@ class Boston extends Component {
                       <tr className="row">
                         <td className="field">Today:</td>
                         <td className="description">
-                          {this.props.cities[0].list[3].weather[0].description}
+                          {this.props.city[0].weather[0].description}
                         </td>
                       </tr>
 
                       <tr className="row">
                         <td className="field">Humidity:</td>
                         <td className="description">
-                          {this.props.cities[0].list[3].main.humidity}
+                          {this.props.city[0].main.humidity}
                         </td>
                       </tr>
 
                       <tr className="row">
                         <td className="field">Wind Speed:</td>
                         <td className="description">
-                          {this.props.cities[0].list[3].wind.speed} mph
+                          {this.props.city[0].wind.speed} mph
                         </td>
                       </tr>
 
                       <tr className="row">
                         <td className="field">Sunrise:</td>
                         <td className="description">
-                          {this.getTime(
-                            this.props.cities[0].list[3].sys.sunrise
-                          )}
+                          {this.getTime(this.props.city[0].sys.sunrise)}
                         </td>
                       </tr>
 
                       <tr className="row">
                         <td className="field">Sunset:</td>
                         <td className="description">
-                          {this.getTime(
-                            this.props.cities[0].list[3].sys.sunset
-                          )}
+                          {this.getTime(this.props.city[0].sys.sunset)}
                         </td>
                       </tr>
                     </tbody>
@@ -126,11 +122,13 @@ class Boston extends Component {
                 </div>
               </div>
               <div className="content-container-right">
-                <Forecast
-                  city={this.props.boston}
-                  getTime={this.getTime}
-                  getDay={this.getDay}
-                />
+                {this.props.cityForecast.length ? (
+                  <Forecast
+                    cityForecast={this.props.cityForecast}
+                    getTime={this.getTime}
+                    getDay={this.getDay}
+                  />
+                ) : null}
               </div>
             </div>
           </React.Fragment>
@@ -142,17 +140,16 @@ class Boston extends Component {
 
 const mapStateToProps = state => {
   return {
-    cities: state.cities,
-    boston: state.dallas
+    city: state.city,
+    cityForecast: state.cityForecast
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchFiveCities: () => gettingFiveCities(dispatch),
-  fetchBoston: () => gettingBoston(dispatch)
+  fetchAnyCity: id => dispatch(gettingAnyCity(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Boston);
+)(SingleCity);
