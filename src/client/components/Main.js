@@ -1,15 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { gettingFiveCities } from "../store/thunks";
+import { gettingFiveCities, gettingAnyCity } from "../store/thunks";
+import InnerNavBar from "./InnerNavBar";
 import CardTemperature from "./CardTemperature";
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.pageChange = this.pageChange.bind(this);
+  }
   componentDidMount() {
     this.props.fetchFiveCities();
+  }
+  pageChange(id) {
+    this.props.fetchAnyCity(id);
   }
   render() {
     return (
       <React.Fragment>
+        <InnerNavBar pageChange={this.pageChange} />
+        <div className="home-title">Current Weather</div>
         <div className="main-container">
           {this.props.cities.length
             ? this.props.cities[0].list.map((city, idx) => {
@@ -33,12 +43,15 @@ class Main extends Component {
 
 const mapStateToProps = state => {
   return {
-    cities: state.cities
+    cities: state.cities,
+    city: state.city,
+    cityForecast: state.cityForecast
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchFiveCities: () => gettingFiveCities(dispatch)
+  fetchFiveCities: () => gettingFiveCities(dispatch),
+  fetchAnyCity: id => dispatch(gettingAnyCity(id))
 });
 
 export default connect(

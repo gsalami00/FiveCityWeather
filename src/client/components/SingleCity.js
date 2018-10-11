@@ -14,13 +14,6 @@ class SingleCity extends Component {
   componentDidMount() {
     this.props.fetchAnyCity(this.props.match.params.id);
   }
-  // shouldComponentUpdate(nextProps) {
-  //   if (this.props.match.params.id !== nextProps.match.params.id) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
   getTime(num) {
     const date = new Date(num * 1000);
     let hours = date.getHours();
@@ -91,7 +84,7 @@ class SingleCity extends Component {
                 </div>
 
                 <div className="content-details">
-                  <table>
+                  <table className="content-details-table">
                     <tbody>
                       <tr className="row">
                         <td className="field">Today:</td>

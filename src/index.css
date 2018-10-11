@@ -1,18 +1,3 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
-
 body {
   margin: 0;
   padding: 0;
@@ -128,10 +113,10 @@ p {
 }
 
 .card-low-high {
-  width: 30%;
+  width: 40%;
   height: 70px;
   border: 1px solid lightgrey;
-  margin: 0px 9%;
+  margin: 0px 4.5%;
   display: inline-block;
   border-radius: 10px;
   text-align: center;
@@ -148,7 +133,7 @@ p {
   color: white;
   letter-spacing: 1px;
   border-radius: 10px;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .card-details-btn a {
@@ -160,8 +145,8 @@ p {
   font-size: 1.2em;
   text-align: center;
   width: 100%;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
   background-color: lightblue;
   text-transform: uppercase;
   font-weight: 700;
@@ -185,7 +170,8 @@ p {
   color: #333333;
 }
 
-.city-title {
+.city-title,
+.home-title {
   width: 77%;
   color: white;
   text-align: center;
@@ -199,32 +185,41 @@ p {
   background: #008ccd;
 }
 
+.home-title {
+  width: 100%;
+}
+
 .content-container {
   width: 80%;
   margin: 0 auto;
 }
 
 .content-container-left {
-  width: 54.5%;
-  margin-right: 2.5%;
+  width: 55%;
   display: inline-block;
 }
 
 .content-container-right {
-  width: 40.5%;
+  width: 37.5%;
   float: right;
+  padding-left: 4%;
+  border-left: 1px solid lightgrey;
 }
 
 .temp-container {
-  width: 38%;
+  width: 45%;
   margin: 0px 0.9%;
   display: inline-block;
   border: 1px solid lightgrey;
   padding-bottom: 20px;
 }
 
+.content-details-table {
+  width: 100%;
+}
+
 .content-details {
-  width: 58%;
+  width: 51%;
   margin-left: 1%;
   display: inline-block;
   vertical-align: top;
@@ -251,10 +246,12 @@ p {
   text-align: left;
   line-height: 1.25em;
   padding: 0 20px;
+  background: #eeeeee;
 }
 
 #forecast-table {
   width: 100%;
+  display: unset;
 }
 
 .table-title {
@@ -282,11 +279,61 @@ p {
   font-size: 1.1em;
 }
 
+.table-day {
+  width: 25%;
+}
+.table-time {
+  width: 20%;
+}
+
 .table-rows {
   border-bottom: 1px solid lightgrey;
   height: 30px;
   text-align: left;
   padding: 0 10px;
+}
+
+.table-clamp {
+  display: -webkit-box;
+  height: 370px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.no-clamp {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  /* -webkit-line-clamp: none;
+  -webkit-box-orient: vertical; */
+}
+
+.table-clamp-btn {
+  width: 100%;
+  height: 40px;
+  background: lightgrey;
+  color: #333333;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.btn-see-more-show,
+.btn-see-less-show {
+  display: block;
+  background-color: #008ccd;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  border-radius: 0.28571429rem;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px auto 0;
+}
+
+.btn-see-more-hide,
+.btn-see-less-hide {
+  display: none;
 }
 
 .center {
@@ -295,4 +342,313 @@ p {
 
 .clear {
   clear: both;
+}
+
+@media screen and (max-width: 1380px) {
+  #inner-nav {
+    width: 69%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .content-container-left {
+    width: 48%;
+  }
+  .content-container-right {
+    width: 44.5%;
+  }
+  .field {
+    font-size: 1em;
+  }
+  .description {
+    font-size: 1em;
+  }
+  .card-title {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .card-low-high {
+    width: 39%;
+    margin: 0px 4.5%;
+  }
+}
+
+@media screen and (max-width: 1095px) {
+  #top-bar {
+    width: 100%;
+  }
+  .table-title {
+    font-size: 1.5em;
+  }
+  .table-day,
+  .table-time,
+  .table-temp,
+  .table-description {
+    font-size: 0.9em;
+  }
+  .table-rows {
+    font-size: 0.9em;
+  }
+  .table-time {
+    width: 23%;
+  }
+  .description {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  #inner-nav {
+    width: 80%;
+  }
+  .card-container-main {
+    margin: 0px 0.8%;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  #inner-nav {
+    width: 80%;
+  }
+  .card-container-main {
+    margin: 0px 0.8%;
+  }
+  .card-title {
+    font-size: 1.2em;
+  }
+  .card-details-btn {
+    font-size: 1em;
+  }
+  .card-low-high {
+    width: 38%;
+    margin: 0px 5%;
+  }
+  .content-container-right {
+    padding-left: 2%;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  #inner-nav {
+    width: 90%;
+  }
+  #title {
+    display: inline-block;
+    color: #008ccd;
+    font-size: 4.25em;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+  #forecast-table {
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+  }
+  .card-temp {
+    height: 118px;
+  }
+  .card-container-main {
+    width: 31%;
+    margin: 0px 0.8% 20px;
+  }
+  .inner-nav-link {
+    padding: 0 10px;
+  }
+  .card-title {
+    font-size: 1.2em;
+  }
+  .card-low-high {
+    width: 45%;
+    margin: 0px 2%;
+  }
+  .content-container-left {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .field {
+    font-size: 1.2em;
+  }
+  .description {
+    font-size: 1.2em;
+  }
+  .content-container-right {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: 100%;
+    padding: 20px 0 0 0;
+    border-left: none;
+    display: block;
+    border-top: 1px solid lightgrey;
+    margin: 0 auto;
+  }
+  .btn-see-more-show,
+  .btn-see-less-show {
+    width: 36%;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+  .table-day,
+  .table-time,
+  .table-temp,
+  .table-description {
+    font-size: 1.2em;
+    padding: 0 20px;
+  }
+  .table-rows {
+    font-size: 1.2em;
+    color: #333333;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  #title {
+    font-size: 3.5em;
+    letter-spacing: 2px;
+  }
+  .city-title,
+  .home-title {
+    font-size: 1.5em;
+  }
+  .card-title {
+    font-size: 1.5em;
+  }
+  .card-container-main {
+    width: 47%;
+    margin: 0px 0.8% 20px;
+  }
+  .card-details-btn {
+    font-size: 1.2em;
+  }
+  .field,
+  .description {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #title {
+    font-size: 3em;
+    letter-spacing: 1px;
+  }
+  .inner-nav-link {
+    padding: 0 10px;
+    font-size: 0.85em;
+  }
+  /* .card-title {
+    font-size: 1.75em;
+  }
+  .card-container-main {
+    width: 48%;
+    margin: 0px 0.8% 20px;
+  }
+  .card-details-btn {
+    font-size: 1.2em;
+  } */
+}
+
+@media screen and (max-width: 555px) {
+  .card-title {
+    font-size: 1.1em;
+  }
+  .card-low-high {
+    width: 41.5%;
+    margin: 0px 3.5%;
+  }
+  .table-day,
+  .table-time,
+  .table-temp,
+  .table-description {
+    font-size: 1em;
+    padding: 0px 7px;
+  }
+  .table-rows {
+    font-size: 0.9em;
+    color: #333333;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  #inner-nav {
+    width: 90%;
+    height: 60px;
+  }
+  .inner-nav-link {
+    padding: 0 15px 10px;
+    font-size: 1em;
+  }
+  .card-low-high {
+    /* width: 44.5%;
+    margin: 0px 2.25%; */
+    width: 41.5%;
+    margin: 0px 3.5%;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  #inner-nav {
+    width: 90%;
+    height: 60px;
+  }
+  .card-low-high {
+    width: 43.5%;
+    margin: 0px 2.5%;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  #title {
+    font-size: 2em;
+  }
+  #logo {
+    display: block;
+    margin: 0 auto;
+  }
+  #logo img {
+    margin-bottom: -30px;
+  }
+  .card-container-main {
+    width: 98%;
+  }
+  .card-title {
+    font-size: 1.35em;
+  }
+  .inner-nav-link {
+    padding: 0 8px 10px;
+  }
+  .city-title,
+  .home-title {
+    font-size: 1.75em;
+  }
+  .temp-container {
+    width: 98%;
+    margin: 0px 0.9%;
+  }
+  .content-details {
+    width: 98%;
+    margin: 20px 1%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .field,
+  .description {
+    font-size: 1.2em;
+  }
+  .table-day,
+  .table-time,
+  .table-temp,
+  .table-description {
+    font-size: 0.9em;
+    padding: 0px 0px;
+  }
+  .table-rows {
+    font-size: 0.9em;
+    color: #333333;
+  }
+  .btn-see-more-show,
+  .btn-see-less-show {
+    width: 44%;
+  }
 }
