@@ -2,19 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { gettingAnyCity } from "../store/thunks";
 import Forecast from "./Forecast";
+import InnerNavBar from "./InnerNavBar";
 
 class SingleCity extends Component {
   constructor(props) {
     super(props);
     this.getTime = this.getTime.bind(this);
     this.getDay = this.getDay.bind(this);
+    this.pageChange = this.pageChange.bind(this);
   }
   componentDidMount() {
-    // In case user saves this page and doesn't come from the home page,
-    // cities' data will still be fetched
     this.props.fetchAnyCity(this.props.match.params.id);
-    // this.props.fetchCityForecast(this.props.match.params.id);
   }
+  // shouldComponentUpdate(nextProps) {
+  //   if (this.props.match.params.id !== nextProps.match.params.id) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
   getTime(num) {
     const date = new Date(num * 1000);
     let hours = date.getHours();
@@ -43,9 +49,13 @@ class SingleCity extends Component {
     const dayOfWeek = days[day.getDay()];
     return dayOfWeek;
   }
+  pageChange(id) {
+    this.props.fetchAnyCity(id);
+  }
   render() {
     return (
       <React.Fragment>
+        <InnerNavBar pageChange={this.pageChange} />
         {this.props.city.length ? (
           <React.Fragment>
             <div className="city-title">

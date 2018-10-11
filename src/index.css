@@ -38,7 +38,7 @@ p {
 #navbar {
   width: 100%;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0 0 0px 0;
   min-height: 100px;
 }
 
@@ -64,6 +64,25 @@ p {
 #logo-img {
   width: 300px;
   height: auto;
+}
+
+#inner-nav {
+  width: 53%;
+  margin: 0 auto 20px;
+  height: 30px;
+  text-align: center;
+  padding-top: 10px;
+  text-transform: uppercase;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+
+.inner-nav-link {
+  display: inline-block;
+  padding: 0 27px;
+  color: #333333;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .main-container {
@@ -167,16 +186,17 @@ p {
 }
 
 .city-title {
-  width: 94%;
-  color: #333333;
+  width: 77%;
+  color: white;
   text-align: center;
   border: none;
   font-size: 2.25em;
-  padding: 0 0 12px;
+  padding: 12px 0 12px 2%;
   text-transform: uppercase;
   font-weight: 600;
-  border-bottom: 1px solid #333333;
+  /* border-bottom: 1px solid #333333; */
   margin: 0 auto 20px;
+  background: #008ccd;
 }
 
 .content-container {
@@ -231,6 +251,10 @@ p {
   text-align: left;
   line-height: 1.25em;
   padding: 0 20px;
+}
+
+#forecast-table {
+  width: 100%;
 }
 
 .table-title {

@@ -3,7 +3,7 @@ import React from "react";
 const Forecast = props => {
   return (
     <React.Fragment>
-      <table>
+      <table id="forecast-table">
         <tbody>
           <tr>
             <td className="table-title" colSpan="4">
