@@ -1,6 +1,5 @@
 import axios from "axios";
 import { GET_FIVE_CITIES, GET_ANY_CITY } from "./";
-import "../../secrets.js";
 
 const API_KEY = "3c4538a176b5e2d6e96913f96994e70b";
 
