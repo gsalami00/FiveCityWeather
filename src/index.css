@@ -201,7 +201,7 @@ p {
 .content-container-right {
   width: 37.5%;
   float: right;
-  padding-left: 2.25%;
+  padding-left: 2%;
   border-left: 1px solid lightgrey;
   width: -moz-max-content;
   width: webkit-max-content;
