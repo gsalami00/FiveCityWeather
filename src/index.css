@@ -294,6 +294,7 @@ p {
 
 .table-clamp {
   display: -webkit-box;
+  display: -moz-box;
   height: 370px;
   width: 100%;
   overflow: hidden;
