@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GET_FIVE_CITIES, GET_ANY_CITY } from "./";
-require("../../secrets.js");
+import "../../secrets.js";
 
 // const aws = require("aws-sdk");
 
