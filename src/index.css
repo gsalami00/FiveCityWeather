@@ -180,7 +180,6 @@ p {
   padding: 12px 0 12px 2%;
   text-transform: uppercase;
   font-weight: 600;
-  /* border-bottom: 1px solid #333333; */
   margin: 0 auto 20px;
   background: #008ccd;
 }
@@ -304,8 +303,6 @@ p {
   display: block;
   width: 100%;
   overflow: visible;
-  /* -webkit-line-clamp: none;
-  -webkit-box-orient: vertical; */
 }
 
 .table-clamp-btn {
@@ -537,16 +534,6 @@ p {
     padding: 0 10px;
     font-size: 0.85em;
   }
-  /* .card-title {
-    font-size: 1.75em;
-  }
-  .card-container-main {
-    width: 48%;
-    margin: 0px 0.8% 20px;
-  }
-  .card-details-btn {
-    font-size: 1.2em;
-  } */
 }
 
 @media screen and (max-width: 555px) {

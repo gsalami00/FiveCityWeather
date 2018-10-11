@@ -96,7 +96,7 @@ class SingleCity extends Component {
                       <tr className="row">
                         <td className="field">Humidity:</td>
                         <td className="description">
-                          {this.props.city[0].main.humidity}
+                          {this.props.city[0].main.humidity}%
                         </td>
                       </tr>
 
