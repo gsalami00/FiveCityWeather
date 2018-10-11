@@ -72,7 +72,7 @@ p {
 
 .main-container {
   display: block;
-  margin: 0 auto;
+  margin: 0px auto 160px;
   width: 96%;
 }
 
@@ -190,7 +190,7 @@ p {
 
 .content-container {
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 160px;
 }
 
 .content-container-left {
@@ -203,6 +203,8 @@ p {
   float: right;
   padding-left: 4%;
   border-left: 1px solid lightgrey;
+  width: -moz-max-content;
+  width: webkit-max-content;
 }
 
 .temp-container {
@@ -251,6 +253,7 @@ p {
 #forecast-table {
   width: 100%;
   display: unset;
+  width: -moz-max-content;
 }
 
 .table-title {
@@ -298,6 +301,10 @@ p {
   height: 370px;
   width: 100%;
   overflow: hidden;
+  display: block;
+  width: -mox-max-content;
+  overflow: hidden;
+  width: -webkit-fill-available;
 }
 
 .no-clamp {
@@ -472,8 +479,10 @@ p {
     font-size: 1.2em;
   }
   .content-container-right {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    /* width: -webkit-fit-content; */
+    /* width: -moz-fit-content; */
     width: 100%;
     padding: 20px 0 0 0;
     border-left: none;
@@ -484,7 +493,7 @@ p {
   .btn-see-more-show,
   .btn-see-less-show {
     width: 36%;
-    margin: 20px auto 0;
+    margin: 20px auto 0px;
     padding: 10px 20px;
     font-size: 1em;
   }
@@ -637,6 +646,6 @@ p {
   }
   .btn-see-more-show,
   .btn-see-less-show {
-    width: 44%;
+    width: 50%;
   }
 }

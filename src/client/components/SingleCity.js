@@ -133,6 +133,7 @@ class SingleCity extends Component {
                   />
                 ) : null}
               </div>
+              <div className="clear" />
             </div>
           </React.Fragment>
         ) : null}
