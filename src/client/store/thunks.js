@@ -1,7 +1,6 @@
 import axios from "axios";
 import { GET_FIVE_CITIES, GET_ANY_CITY } from "./";
-
-const API_KEY = "3c4538a176b5e2d6e96913f96994e70b";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const getFiveCities = payload => ({
   type: GET_FIVE_CITIES,
@@ -33,6 +32,7 @@ export const gettingFiveCities = async dispatch => {
     const { data } = await axios.get(
       `https://api.openweathermap.org/data/2.5/group?id=5128581,4684888,5368361,4930956,4372599&units=imperial&APPID=${API_KEY}`
     );
+
     dispatch(getFiveCities(data));
   } catch (err) {
     console.log(err);

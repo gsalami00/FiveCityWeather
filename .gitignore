@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-secrets.js
+.env
 # testing
 /coverage
 
