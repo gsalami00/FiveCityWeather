@@ -28,50 +28,55 @@ class Forecast extends Component {
   render() {
     return (
       <React.Fragment>
-        <table id="forecast-table">
-          <tbody className={this.state.tableClamp}>
-            <tr>
-              <td className="table-title" colSpan="4">
-                5-Day/3-Hour Forecast
-              </td>
-            </tr>
-            <tr>
-              <td className="table-day">Day</td>
-              <td className="table-time">Time</td>
-              <td className="table-temp">Temperature</td>
-              <td className="table-description">Description</td>
-            </tr>
+        <div className="forecast-container">
+          <table id="forecast-table">
+            <tbody className={this.state.tableClamp}>
+              <tr>
+                <td className="table-title" colSpan="4">
+                  5-Day/3-Hour Forecast
+                </td>
+              </tr>
+              <tr>
+                <td className="table-day">Day</td>
+                <td className="table-time">Time</td>
+                <td className="table-temp">Temperature</td>
+                <td className="table-description">Description</td>
+              </tr>
 
-            {this.props.cityForecast[0].map((temp, idx) => {
-              return (
-                <React.Fragment key={idx}>
-                  <tr>
-                    <td className="table-rows">{this.props.getDay(temp.dt)}</td>
+              {this.props.cityForecast[0].map((temp, idx) => {
+                return (
+                  <React.Fragment key={idx}>
+                    <tr>
+                      <td className="table-rows">
+                        {this.props.getDay(temp.dt)}
+                      </td>
 
-                    <td className="table-rows">
-                      {this.props.getTime(temp.dt)}
-                    </td>
+                      <td className="table-rows">
+                        {this.props.getTime(temp.dt)}
+                      </td>
 
-                    <td className="table-rows center">
-                      {Math.trunc(temp.main.temp)}
-                      &deg; F
-                    </td>
+                      <td className="table-rows center">
+                        {Math.trunc(temp.main.temp)}
+                        &deg; F
+                      </td>
 
-                    <td className="table-rows center">
-                      {temp.weather[0].description}
-                    </td>
-                  </tr>
-                </React.Fragment>
-              );
-            })}
-          </tbody>
-        </table>
-        <button className={this.state.more} onClick={this.showRows}>
-          See More &#x2193;
-        </button>
-        <button className={this.state.less} onClick={this.hideRows}>
-          See Less &#x2191;
-        </button>
+                      <td className="table-rows center">
+                        {temp.weather[0].description}
+                      </td>
+                    </tr>
+                  </React.Fragment>
+                );
+              })}
+            </tbody>
+          </table>
+
+          <button className={this.state.more} onClick={this.showRows}>
+            See More &#x2193;
+          </button>
+          <button className={this.state.less} onClick={this.hideRows}>
+            See Less &#x2191;
+          </button>
+        </div>
       </React.Fragment>
     );
   }

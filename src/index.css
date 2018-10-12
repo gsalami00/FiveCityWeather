@@ -201,10 +201,17 @@ p {
 .content-container-right {
   width: 37.5%;
   float: right;
-  padding-left: 2%;
+  /* width: -moz-max-content; */
+  /* width: webkit-max-content; */
+}
+
+.forecast-container {
+  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  float: right;
+  padding-left: 30px;
   border-left: 1px solid lightgrey;
-  width: -moz-max-content;
-  width: webkit-max-content;
 }
 
 .temp-container {
@@ -253,6 +260,7 @@ p {
 #forecast-table {
   width: 100%;
   display: unset;
+  width: max-content;
   width: -moz-max-content;
 }
 
@@ -450,6 +458,13 @@ p {
     width: fit-content;
     display: block;
     margin: 0 auto;
+  }
+  .forecast-container {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: 0;
   }
   .card-temp {
     height: 118px;
